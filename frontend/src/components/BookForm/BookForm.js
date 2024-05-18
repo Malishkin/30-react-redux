@@ -8,7 +8,6 @@ const BookForm = () => {
     //dispatch action to add book
     e.preventDefault();
     if (title && author) {
-      //dispatch action to add book
       console.log("Title: ", title, "Author: ", author);
       setTitle("");
       setAuthor("");
