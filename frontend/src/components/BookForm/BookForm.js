@@ -16,7 +16,7 @@ const BookForm = () => {
   return (
     <div className="app-block book-form">
       <h2>Add a New Book</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>
           <input
@@ -35,9 +35,7 @@ const BookForm = () => {
             onChange={(e) => setAuthor(e.target.value)}
           />
         </div>
-        <button type="submit" onSubmit={handleSubmit}>
-          Add Book
-        </button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
