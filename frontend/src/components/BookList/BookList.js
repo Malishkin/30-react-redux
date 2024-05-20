@@ -30,17 +30,16 @@ const BookList = () => {
               {++i} {book.title}
               <strong> {book.author}</strong>
               <div className="book-actions">
-                {book.isFavourite ? (
-                  <BsBookmarkStarFill
-                    className="star-icon"
-                    onClick={() => handleToggleFavourite(book.id)}
-                  />
-                ) : (
-                  <BsBookmarkStar
-                    className="star-icon"
-                    onClick={() => handleToggleFavourite(book.id)}
-                  />
-                )}
+                <span
+                  className="star-icon"
+                  onClick={() => handleToggleFavourite(book.id)}
+                >
+                  {book.isFavourite ? (
+                    <BsBookmarkStarFill />
+                  ) : (
+                    <BsBookmarkStar />
+                  )}
+                </span>
 
                 <button onClick={() => handleDelete(book.id)}>Delete</button>
               </div>
