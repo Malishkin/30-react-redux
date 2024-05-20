@@ -14,6 +14,10 @@ const BookList = () => {
     dispatch(deleteBook(id));
   };
 
+  const handleToggleFavourite = (id) => {
+    dispatch(toggleFavourite(id));
+  };
+
   return (
     <div className="app-block book-list">
       <h2>Book List</h2>
@@ -29,12 +33,12 @@ const BookList = () => {
                 {book.isFavourite ? (
                   <BsBookmarkStarFill
                     className="star-icon"
-                    onClick={() => dispatch(toggleFavourite(book.id))}
+                    onClick={() => handleToggleFavourite(book.id)}
                   />
                 ) : (
                   <BsBookmarkStar
                     className="star-icon"
-                    onClick={() => dispatch(toggleFavourite(book.id))}
+                    onClick={() => handleToggleFavourite(book.id)}
                   />
                 )}
 
