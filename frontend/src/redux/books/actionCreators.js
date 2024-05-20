@@ -13,3 +13,11 @@ export const deleteBook = (id) => {
     payload: id,
   };
 };
+
+export const toggleFavourite = (id) => {
+  return {
+    type: a.TOGGLE_FAVOURITE,
+    payload: id,
+  };
+};
+// Path: frontend/src/redux/books/actionTypes.js
