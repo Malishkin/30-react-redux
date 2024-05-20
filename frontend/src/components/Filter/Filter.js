@@ -1,9 +1,20 @@
 import "./Filter.css";
 
 const Filter = () => {
+  const handleTitleFilterChange = (e) => {
+    // dispatch(setTitleFilter(e.target.value));
+  };
   return (
     <div className="app-block filter">
-      <h2>Filters</h2>
+      <div className="filter-row">
+        <div className="filter-group">
+          <input
+            type="text"
+            placeholder="Filter by title..."
+            onChange={handleTitleFilterChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };
