@@ -12,8 +12,7 @@ const BookForm = () => {
   const handleAddRandomBook = () => {
     const randomBook = booksData[Math.floor(Math.random() * booksData.length)];
     const book = {
-      title: randomBook.title,
-      author: randomBook.author,
+      ...randomBook,
       id: uuidv4(),
     };
     dispatch(addBook(book));
