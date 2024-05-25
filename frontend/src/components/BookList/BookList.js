@@ -24,7 +24,6 @@ const BookList = () => {
     const matchesTitle = book.title
       .toLowerCase()
       .includes(titleFilter.toLowerCase());
-    console.log("title: ", book.title, matchesTitle);
     return matchesTitle;
   });
   return (
@@ -34,7 +33,7 @@ const BookList = () => {
         <p>No books available</p>
       ) : (
         <ul>
-          {books.map((book, i) => (
+          {filteredBooks.map((book, i) => (
             <li key={book.id}>
               {++i} {book.title}
               <strong> {book.author}</strong>
