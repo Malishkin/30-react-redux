@@ -27,7 +27,7 @@ const Filter = () => {
           />
         </div>
         <button type="button" onClick={handleResetFilters}>
-          Reset
+          Reset Filters
         </button>
       </div>
     </div>
