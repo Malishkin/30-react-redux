@@ -1,8 +1,11 @@
+import { useDispatch } from "react-redux";
+import { setTitleFilter } from "../../redux/slices/filterSlice";
 import "./Filter.css";
 
 const Filter = () => {
+  const dispatch = useDispatch();
   const handleTitleFilterChange = (e) => {
-    // dispatch(setTitleFilter(e.target.value));
+    dispatch(setTitleFilter({ payload: e.target.value }));
   };
   return (
     <div className="app-block filter">
