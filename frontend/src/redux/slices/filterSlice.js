@@ -17,4 +17,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setTitleFilter } = filterSlice.actions;
+console.log(filterSlice.actions);
+console.log(filterSlice.actions.setTitleFilter({ payload: "test" }));
+export default filterSlice.reducer;
