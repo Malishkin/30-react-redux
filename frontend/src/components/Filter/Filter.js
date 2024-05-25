@@ -2,12 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setTitleFilter,
   selectTitleFilter,
+  resetFilters,
 } from "../../redux/slices/filterSlice";
 import "./Filter.css";
 
 const Filter = () => {
   const dispatch = useDispatch();
   const titleFilter = useSelector(selectTitleFilter);
+  const handleResetFilters = () => {
+    dispatch(resetFilters());
+  };
   const handleTitleFilterChange = (e) => {
     dispatch(setTitleFilter(e.target.value));
   };
@@ -22,6 +26,9 @@ const Filter = () => {
             onChange={handleTitleFilterChange}
           />
         </div>
+        <button type="button" onClick={handleResetFilters}>
+          Reset
+        </button>
       </div>
     </div>
   );
