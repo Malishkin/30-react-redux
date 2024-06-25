@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   title: "",
+  author: "",
 };
 
 const filterSlice = createSlice({
@@ -25,6 +26,7 @@ const filterSlice = createSlice({
 });
 
 export const selectTitleFilter = (state) => state.filter.title;
+export const selectAuthorFilter = (state) => state.filter.author;
 export const { setTitleFilter, setAutorFilter, resetFilters } =
   filterSlice.actions;
 export default filterSlice.reducer;
