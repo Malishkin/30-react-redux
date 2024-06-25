@@ -3,6 +3,7 @@ import { BsBookmarkStarFill, BsBookmarkStar } from "react-icons/bs";
 import {
   selectTitleFilter,
   selectAuthorFilter,
+  selectOnlyFavoriteFilter,
 } from "../../redux/slices/filterSlice.js";
 
 import {
@@ -15,6 +16,8 @@ const BookList = () => {
   const books = useSelector((state) => state.books); //name of redoser books
   const titleFilter = useSelector(selectTitleFilter);
   const authorFilter = useSelector(selectAuthorFilter);
+  const onlyFavoriteFilter = useSelector(selectOnlyFavoriteFilter);
+
   const dispatch = useDispatch();
   const handleDelete = (id) => {
     dispatch(deleteBook(id));
@@ -31,7 +34,8 @@ const BookList = () => {
     const matchesAuthor = book.author
       .toLowerCase()
       .includes(authorFilter.toLowerCase());
-    return matchesTitle && matchesAuthor;
+    const matchesFavourite = onlyFavoriteFilter ? book.isFavourite : true;
+    return matchesTitle && matchesAuthor && matchesFavourite;
   });
 
   return (
