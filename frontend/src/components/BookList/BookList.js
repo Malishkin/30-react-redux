@@ -6,7 +6,11 @@ import {
   selectOnlyFavoriteFilter,
 } from "../../redux/slices/filterSlice.js";
 
-import { deleteBook, toggleFavourite, selectBooks } from "../../redux/slices/booksSlice.js";
+import {
+  deleteBook,
+  toggleFavourite,
+  selectBooks,
+} from "../../redux/slices/booksSlice.js";
 import "./BookList.css";
 
 const BookList = () => {
@@ -64,7 +68,8 @@ const BookList = () => {
             <li key={book.id}>
               <div className="book-info">
                 {++i}. {highLightMatch(book.title, titleFilter)} by{" "}
-                <strong>{highLightMatch(book.author, authorFilter)}</strong>{" "}
+                <strong>{highLightMatch(book.author, authorFilter)}</strong> (
+                {book.source})
               </div>
 
               <div className="book-actions">
