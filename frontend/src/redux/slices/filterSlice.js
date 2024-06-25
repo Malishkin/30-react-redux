@@ -15,6 +15,9 @@ const filterSlice = createSlice({
       // // You can also return new state as usually
       // return {...state, title: action.payload}
     },
+    setAutorFilter: (state, action) => {
+      state.author = action.payload;
+    },
     resetFilters: (state) => {
       return initialState;
     },
@@ -22,5 +25,6 @@ const filterSlice = createSlice({
 });
 
 export const selectTitleFilter = (state) => state.filter.title;
-export const { setTitleFilter, resetFilters } = filterSlice.actions;
+export const { setTitleFilter, setAutorFilter, resetFilters } =
+  filterSlice.actions;
 export default filterSlice.reducer;
