@@ -1,8 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import createBookWithID from "../../utils/createBookWithId.js";
 
 const initialState = [];
+export const fetchBook = createAsyncThunk("books/fetchBooks", async () => {
+  const response = await axios.get("http://localhost:4000/random-book");
+  console.log("response.data: ", response.data);
+  return response.data;
+});
 
 const booksSlice = createSlice({
   name: "books",
@@ -34,18 +39,14 @@ const booksSlice = createSlice({
       //   );
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(fetchBook.fulfilled, (state, action) => {
+      if (action.payload.author && action.payload.title) {
+        state.push(createBookWithID(action.payload, "API"));
+      }
+    });
+  },
 });
-
-export const thunkFunction = async (dispatch, getState) => {
-  try {
-    const response = await axios.get("http://localhost:4000/random-book");
-    if (response?.data?.author && response?.data?.title) {
-      dispatch(addBook(createBookWithID(response.data, "API")));
-    }
-  } catch (error) {
-    console.log("Error catching random book: ", error);
-  }
-};
 
 export const { addBook, deleteBook, toggleFavourite } = booksSlice.actions;
 export const selectBooks = (state) => state.books;
