@@ -5,7 +5,6 @@ import createBookWithID from "../../utils/createBookWithId.js";
 const initialState = [];
 export const fetchBook = createAsyncThunk("books/fetchBooks", async () => {
   const response = await axios.get("http://localhost:4000/random-book");
-  console.log("response.data: ", response.data);
   return response.data;
 });
 
